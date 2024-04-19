@@ -1,4 +1,4 @@
-FROM golang:1.22.2-alpine AS workbench
+FROM golang:1.22.2-alpine@sha256:cdc86d9f363e8786845bea2040312b4efa321b828acdeb26f393faa864d887b0 AS workbench
 
 WORKDIR /src
 COPY . /src
@@ -6,7 +6,7 @@ COPY . /src
 ENV GOCACHE=/root/.cache/go-build
 RUN --mount=type=cache,target="/root/.cache/go-build" go build -o /bin/metrics ./main.go
 
-FROM alpine:3.18
+FROM alpine:3.18@sha256:11e21d7b981a59554b3f822c49f6e9f57b6068bb74f49c4cd5cc4c663c7e5160
 
 RUN apk --update --no-cache add iptables coreutils gawk bash
 
