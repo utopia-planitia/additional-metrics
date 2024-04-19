@@ -31,7 +31,13 @@ var (
 
 func main() {
 
+	http.Handle("/", http.RedirectHandler("/metrics", http.StatusFound))
+
 	http.Handle("/metrics", promhttp.Handler())
+
+	http.HandleFunc("/healthy", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("ok"))
+	})
 
 	c := iptablesMostDuplicatedRuleTotal()
 
