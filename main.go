@@ -36,7 +36,10 @@ func main() {
 	http.Handle("/metrics", promhttp.Handler())
 
 	http.HandleFunc("/healthy", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("ok"))
+		_, err := w.Write([]byte("ok"))
+		if err != nil {
+			log.Printf("writing health response: %v", err)
+		}
 	})
 
 	c := iptablesMostDuplicatedRuleTotal()
