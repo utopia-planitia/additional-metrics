@@ -16,6 +16,10 @@
     "automergeType": "pr",
     "platformAutomerge": true,
     "rebaseWhen": "behind-base-branch",
+    "separateMajorMinor": true,
+    "separateMultipleMajor": true,
+    "separateMultipleMinor": true,
+    "separateMinorPatch": true,
     "regexManagers": [
         {
             "fileMatch": [
