@@ -12,7 +12,7 @@ RUN --mount=type=cache,target="/root/.cache/go-build" go mod download
 COPY . /src
 RUN --mount=type=cache,target="/root/.cache/go-build" go build -o /bin/metrics ./main.go
 
-FROM docker.io/library/alpine:3.18.12@sha256:de0eb0b3f2a47ba1eb89389859a9bd88b28e82f5826b6969ad604979713c2d4f
+FROM docker.io/library/alpine:3.20.9@sha256:a4f4213abb84c497377b8544c81b3564f313746700372ec4fe84653e4fb03805
 
 ENV IPTABLES_VERSION=1.8.9
 RUN set -eux; \
